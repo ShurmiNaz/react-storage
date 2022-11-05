@@ -1,16 +1,24 @@
-import React from 'react';
-import { add, multiply } from '../../utilities/utilities';
+import React, { useEffect, useState } from 'react';
+
+import Cosmetic from '../Cosmetic/Cosmetic';
+import './Cosmetics.css';
 
 const Cosmetics = () => {
-     const first = 12;
-     const second = 24;
-     const sum = add(first, second);
-     const multiValue = multiply(first, second)
+     const [cosmetics, setCosmetics] = useState([]);
+     useEffect(() => {
+          fetch('fakeData.json')
+               .then(res => res.json())
+               .then(data => setCosmetics(data))
+     }, [])
      return (
-          <div>
+          <div className="cosmetics">
                <h2>this is cosmetics section</h2>
-               <p> sum of cosmetics : {sum}</p>
-               <h5> Cosmetice multiply value : {multiValue}</h5>
+               <h4> Cosmetics number : {cosmetics.length}</h4>
+               {cosmetics.map(cosmetic => <Cosmetic
+                    key={cosmetic.id}
+                    cosmetic={cosmetic}
+               ></Cosmetic>)}
+
           </div>
      );
 };
