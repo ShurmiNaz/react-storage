@@ -11,13 +11,15 @@ const Cosmetics = () => {
                .then(data => setCosmetics(data))
      }, [])
      return (
-          <div className="cosmetics">
+          <div >
                <h2>this is cosmetics section</h2>
                <h4> Cosmetics number : {cosmetics.length}</h4>
-               {cosmetics.map(cosmetic => <Cosmetic
-                    key={cosmetic.id}
-                    cosmetic={cosmetic}
-               ></Cosmetic>)}
+               <div className="cosmetics">
+                    {cosmetics.map(cosmetic => <Cosmetic
+                         key={cosmetic.id}
+                         cosmetic={cosmetic}
+                    ></Cosmetic>)}
+               </div>
 
           </div>
      );
