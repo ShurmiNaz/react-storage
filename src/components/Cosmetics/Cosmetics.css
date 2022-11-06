@@ -1,6 +1,8 @@
 .cosmetics {
-     background-color: lightseagreen;
+     background-color: rgb(245, 205, 153);
      border: 1px solid greenyellow;
      margin: 30px;
      border-radius: 5px;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
 }
